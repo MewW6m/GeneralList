@@ -71,3 +71,6 @@ group :test do
   gem "webdrivers"
 end
 gem 'unicorn'
+
+gem 'devise'
+gem 'devise-i18n'
