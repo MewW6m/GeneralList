@@ -30,7 +30,7 @@
 - itemMaster(id, itemCode, itemName, enable)
 
 ## Demo
-- http://157.7.66.75/
+- http://157.7.203.211/ 
 
 ## Requirement
 - UIKit
