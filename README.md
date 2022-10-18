@@ -29,6 +29,12 @@
 - UserMaster(id, userName, departmentCode, enable)
 - itemMaster(id, itemCode, itemName, enable)
 
+### Other
+#### Architecture
+- データ取得のタイミングはページ描画時
+    - 検索、ソート、ページングはフロントで処理
+    - 静的ページを想定
+
 ## Demo
 - http://157.7.203.211/ 
 

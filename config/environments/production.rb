@@ -92,4 +92,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_url_options = { host: '157.7.203.211', port: 80 }
+
+  config.action_controller.forgery_protection_origin_check = false
 end
