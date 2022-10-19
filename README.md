@@ -36,7 +36,7 @@
     - 静的ページを想定
 
 ## Demo
-- http://157.7.203.211/ 
+- http://157.7.201.187/users/sign_in
 
 ## Requirement
 - UIKit
