@@ -1,3 +1,4 @@
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 <div class="uk-section uk-section-muted uk-flex uk-flex-middle uk-animation-fade" uk-height-viewport>
   <div class="uk-width-1-1">
@@ -7,6 +8,18 @@
           <div class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
             <h3 class="uk-card-title uk-text-center">General List</h3>
             <form>
+              <% if notice != nil then %>
+              <div class="uk-alert-success" uk-alert>
+                <a class="uk-alert-close" uk-close></a>
+                <p><%= notice %></p>
+              </div>
+              <% end %>
+              <% if alert != nil then %>
+              <div class="uk-alert-danger" uk-alert>
+                <a class="uk-alert-close" uk-close></a>
+                <p><%= alert %></p>
+              </div>
+              <% end %>
               <div class="uk-margin">
                 <div class="uk-inline uk-width-1-1 field">
                   <span class="uk-form-icon" uk-icon="icon: mail"></span>

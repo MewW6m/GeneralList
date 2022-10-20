@@ -1,9 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
 
-
-  #rescue_from Exception,  with: lambda { |e| render_error(e, 500, "Internal Servere Error") }
-  #rescue_from StandardError,  with: lambda { |e| render_error(e, 500, "Internal Server Error") }
   rescue_from ActionController::RoutingError,  with: lambda { |e| render_error(e, 404, "Not Found") }
   rescue_from ActiveRecord::RecordNotFound, with: lambda { |e| render_error(e, 404, "Not Found") }
 
@@ -20,4 +17,5 @@ class ApplicationController < ActionController::Base
       render template: "layouts/error", status: 500
     end
   end
+
 end
