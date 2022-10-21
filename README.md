@@ -30,9 +30,9 @@
 | ---------- | ------------ | ---- | --- | ------- | 
 | id         | bigint(20)   | NO   | PRI | NULL    | 
 | status     | varchar(255) | YES  |     | NULL    | 
-| itemCode   | varchar(255) | YES  |     | NULL    | 
-| registUser | varchar(255) | YES  |     | NULL    | 
-| updateUser | varchar(255) | YES  |     | NULL    | 
+| itemCode   | bigint(20) | YES  |     | NULL    | 
+| registUser | bigint(20) | YES  |     | NULL    | 
+| updateUser | bigint(20) | YES  |     | NULL    | 
 | enable     | tinyint(1)   | YES  |     | NULL    | 
 | created_at | datetime(6)  | NO   |     | NULL    | 
 | updated_at | datetime(6)  | NO   |     | NULL    | 
@@ -52,6 +52,7 @@
 | Field                  | Type         | Null | Key | Default | 
 | ---------------------- | ------------ | ---- | --- | ------- | 
 | id                     | bigint(20)   | NO   | PRI | NULL    | 
+| name                   | varchar(255) | NO   | UNI |         | 
 | departmentId           | bigint(20)   | NO   | UNI |         | 
 | email                  | varchar(255) | NO   | UNI |         | 
 | encrypted_password     | varchar(255) | NO   |     |         | 
