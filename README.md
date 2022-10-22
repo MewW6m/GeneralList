@@ -22,62 +22,14 @@
 - 物品一覧画面
 - 物品詳細画面
 - エラー画面
+##### => [画面設計書(GoogleSlide)](https://docs.google.com/presentation/d/15h6uCa-Kj98WNsX8mHK1W7VR225Ffy--kLtzchGc1Ak)
 
 ### Data
-- stocks(id, status, itemCode, registUser, updateUser, enable)
-
-| Field      | Type         | Null | Key | Default | 
-| ---------- | ------------ | ---- | --- | ------- | 
-| id         | bigint(20)   | NO   | PRI | NULL    | 
-| status     | varchar(255) | YES  |     | NULL    | 
-| itemCode   | bigint(20) | YES  |     | NULL    | 
-| registUser | bigint(20) | YES  |     | NULL    | 
-| updateUser | bigint(20) | YES  |     | NULL    | 
-| enable     | tinyint(1)   | YES  |     | NULL    | 
-| created_at | datetime(6)  | NO   |     | NULL    | 
-| updated_at | datetime(6)  | NO   |     | NULL    | 
-
-- departmentMasters(departmentCode, departmentName, enable)
-
-| Field      | Type         | Null | Key | Default | 
-| ---------- | ------------ | ---- | --- | ------- | 
-| id         | bigint(20)   | NO   | PRI | NULL    | 
-| name       | varchar(255) | YES  |     | NULL    | 
-| enable     | tinyint(1)   | YES  |     | NULL    | 
-| created_at | datetime(6)  | NO   |     | NULL    | 
-| updated_at | datetime(6)  | NO   |     | NULL    | 
-
-- users(id, userName, departmentCode, enable)
-
-| Field                  | Type         | Null | Key | Default | 
-| ---------------------- | ------------ | ---- | --- | ------- | 
-| id                     | bigint(20)   | NO   | PRI | NULL    | 
-| name                   | varchar(255) | NO   | UNI |         | 
-| departmentId           | bigint(20)   | NO   | UNI |         | 
-| email                  | varchar(255) | NO   | UNI |         | 
-| encrypted_password     | varchar(255) | NO   |     |         | 
-| reset_password_token   | varchar(255) | YES  | UNI | NULL    | 
-| reset_password_sent_at | datetime(6)  | YES  |     | NULL    | 
-| remember_created_at    | datetime(6)  | YES  |     | NULL    | 
-| created_at             | datetime(6)  | NO   |     | NULL    | 
-| updated_at             | datetime(6)  | NO   |     | NULL    | 
-
-- itemMasters(id, itemCode, itemName, enable)
-
-| Field      | Type         | Null | Key | Default | 
-| ---------- | ------------ | ---- | --- | ------- | 
-| id         | bigint(20)   | NO   | PRI | NULL    | 
-| code       | varchar(255) | YES  |     | NULL    | 
-| name       | varchar(255) | YES  |     | NULL    | 
-| enable     | tinyint(1)   | YES  |     | NULL    | 
-| created_at | datetime(6)  | NO   |     | NULL    | 
-| updated_at | datetime(6)  | NO   |     | NULL    | 
-
-### Other
-#### Architecture
-- データ取得のタイミングはページ描画時
-    - 検索、ソート、ページングはフロントで処理
-    - 静的ページを想定
+- 在庫
+- 部署マスタ
+- ユーザマスタ
+- 物品マスタ
+##### => [テーブル設計書(GoogleSpreadsheet)](https://docs.google.com/spreadsheets/d/17GF_0c8uyNnVr62vYrG8tGEePTFhA6uO6l_dLL8K9pY)
 
 ## Demo
 - http://157.7.201.187/users/sign_in
