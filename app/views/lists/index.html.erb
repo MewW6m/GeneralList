@@ -1,1 +1,20 @@
-<%= link_to destroy_user_session_path, method: :get do %>aaa<% end %>
+<%= render "lists/links" %>
+<header class="uk-navbar-container tm-navbar-container uk-sticky-fixed header-back-color">
+    <%= render "lists/header" %>
+</header>
+<main uk-grid class="uk-grid-collapse">
+  <article class="uk-width-expand uk-flex uk-flex-column">
+    <section id="searchSection" class="uk-flex-2 padding10">
+      <%= render "lists/searchSection" %>
+    </section>
+    <section id="listSection" class="uk-flex-1 padding10">
+      <%= render "lists/listSection" %>
+    </section>
+    <footer class="uk-flex-2 padding10">
+      <%= render "lists/footer" %>
+    </footer>
+  </article>
+  <aside class="height100 padding10">
+    <%= render "lists/aside" %>
+  </aside>
+</main>

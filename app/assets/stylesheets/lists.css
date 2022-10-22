@@ -1,0 +1,30 @@
+.header-back-color {
+  background: linear-gradient(to left,#28a5f5,#1e87f0) !important;
+}
+
+.text-white {
+  color: white !important;
+}
+.uk-navbar-item, .uk-navbar-nav>li>a, .uk-navbar-toggle {
+    min-height: 55px !important;
+}
+.height100 {
+  height:100%;
+}
+.padding10{
+  padding:10px;
+}
+main {
+  height:calc(100vh - 75px);
+}
+#searchSection {
+  height:200px;
+}
+#listSection {
+}
+footer {
+  height:55px;
+}
+aside {
+  width:250px;
+}
