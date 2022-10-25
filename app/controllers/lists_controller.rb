@@ -5,6 +5,7 @@ class ListsController < ApplicationController
   end
 
   def show
-
+    users = { id:1, nickname: "ぴよっち", age: 22 }
+    render json: users
   end
 end

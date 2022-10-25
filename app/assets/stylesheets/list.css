@@ -56,6 +56,9 @@ body {
   right: 21px;
   cursor: pointer;
 }
+.padding0-15 {
+  padding: 0 15px !important;
+}
 main {
   height:calc(100vh - 75px);
 }
@@ -77,6 +80,11 @@ main {
   top: 0;
   z-index: 2;
   background: white;
+}
+#listSection th span {
+  position: relative;
+  bottom: 2px;
+  color: dimgray;
 }
 footer {
   height:35px;

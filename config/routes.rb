@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
-  resources :lists, only: [:index]
+  resources :lists, only: [:index, :show]
 
   get '*not_found' => 'application#routing_error'
   post '*not_found' => 'application#routing_error'
