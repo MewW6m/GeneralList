@@ -35,6 +35,7 @@
 - http://157.7.201.187/users/sign_in
 
 ## Requirement
+- Jquery
 - UIKit
 - Ruby
 - Ruby on Rails

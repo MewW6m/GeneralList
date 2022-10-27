@@ -81,6 +81,14 @@ main {
   z-index: 2;
   background: white;
 }
+#listSection th,
+#listSection tbody tr{
+  cursor: pointer;
+}
+#listSection th:hover,
+#listSection tbody tr:hover{
+  background: whitesmoke;
+}
 #listSection th span {
   position: relative;
   bottom: 2px;
