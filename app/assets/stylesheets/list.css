@@ -62,6 +62,12 @@ body {
 main {
   height:calc(100vh - 75px);
 }
+.aside-hover:hover {
+  background: rgba(40,165,245,0.1);
+}
+.clicked-line{
+  background: rgba(40,165,245,0.2)!important;
+}
 #searchSection {
   height:200px;
 }
