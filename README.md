@@ -26,7 +26,7 @@
 
 ### API
 - 在庫一覧検索
-##### => [API設計書](https://docs.google.com/spreadsheets/d/1mZATkJLa1hqVdCRpNHM_r63aZ3gvTpsMuirE27ozTLw/edit#gid=0)
+##### => [API設計書(GoogleSpreadsheet)](https://docs.google.com/spreadsheets/d/1mZATkJLa1hqVdCRpNHM_r63aZ3gvTpsMuirE27ozTLw/edit#gid=0)
 
 ### Data
 - 在庫
