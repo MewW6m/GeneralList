@@ -6,7 +6,9 @@
       <div class="uk-grid-margin uk-grid uk-grid-stack" uk-grid>
         <div class="uk-width-1-1@m">
           <div class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
-            <h3 class="uk-card-title uk-text-center">General List</h3>
+            <div class="uk-text-center">
+              <%= image_tag 'logo.png', class: 'uk-width-4-5' %>          
+            </div>
             <form>
               <% if notice != nil then %>
               <div class="uk-alert-success" uk-alert>
