@@ -24,6 +24,10 @@
 - エラー画面
 ##### => [画面設計書(GoogleSlide)](https://docs.google.com/presentation/d/15h6uCa-Kj98WNsX8mHK1W7VR225Ffy--kLtzchGc1Ak)
 
+### API
+- 在庫一覧検索
+##### => [API設計書](https://docs.google.com/spreadsheets/d/1mZATkJLa1hqVdCRpNHM_r63aZ3gvTpsMuirE27ozTLw/edit#gid=0)
+
 ### Data
 - 在庫
 - 部署マスタ
