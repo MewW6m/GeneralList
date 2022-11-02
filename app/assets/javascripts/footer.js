@@ -9,21 +9,25 @@ class Footer {
    *  * 最初のページに移動する
    */
   moveFirstPage(){
-    this.updatePageSelect(1);
+    const movePage = 1;
+    this.updatePageSelect(movePage);
   }
 
   /**
    *  * 前のページに移動する
    */
   moveBeforePage(){
-    this.updatePageSelect(this.pageNum - 1);
+    const movePage = this.page == 1 ? 1 : this.page - 1;
+    this.updatePageSelect(movePage);
   }
 
   /**
    *  * 次のページに移動する
    */
   moveAfterPage(){
-    this.updatePageSelect(this.page + 1);
+    const lastPage =  Math.floor(footer.totalCount/30)+1;
+    const movePage = this.page == lastPage ? this.page : this.page + 1;
+    this.updatePageSelect(movePage);
 
   }
 
@@ -31,7 +35,8 @@ class Footer {
    *  * 最後のページに移動する
    */
   moveLastPage(){
-    this.updatePageSelect(Math.floor(this.TotalCount/this.getPage));
+    const movePage = Math.floor(footer.totalCount/30)+1;
+    this.updatePageSelect(movePage);
   }
 
   /**
@@ -51,6 +56,20 @@ class Footer {
     this.totalCount = num;
     $('#totalCount').text(num); 
   }
+
+  /**
+   *  * ページ番号セレクトボックスの選択肢を更新する
+   */
+  updatePageSelectChoice(){
+    const pageNum = Math.floor(footer.totalCount/30)+1;
+    const pageList = Array.from(Array(pageNum), (v, k) => k);
+
+    $('#pageSelect').empty();
+    $.each(pageList, function(index, value) {
+      $('#pageSelect').append('<option>' + (value + 1) + '</option>')
+    });
+  }
+
 
   get page(){ return this.#page; }
   set page(arg){ this.#page = arg; }

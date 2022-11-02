@@ -24,5 +24,6 @@ class Aside {
     $(elm).children().each((i, e) => {
       $('aside input[data-row=' + $(e).data('row') + ']').val($(e).text());
     });
+    $('aside').scrollTop(0);
   }
 }

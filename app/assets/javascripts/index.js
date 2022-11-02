@@ -8,19 +8,22 @@ const footer = new Footer();
 
 // 初期表示時
 $(document).on("DOMContentLoaded", async function(e){
-  commonSearchLogic();
+  await commonSearchLogic();
+  footer.updatePageSelectChoice();
 });
 
 // 検索ボタンを押下したとき
 $(document).on("click", '#searchBtn', async function(e){
   search.updateSearch();
-  commonSearchLogic();
+  footer.moveFirstPage();
+  await commonSearchLogic();
+  footer.updatePageSelectChoice();
 });
 
 // ソートボタンを押下したとき
 $(document).on('click', '#listSection thead th', async function(e){
   listHeader.updateArrow(e.currentTarget);
-  commonSearchLogic();
+  await commonSearchLogic();
 });
 
 // 一覧行を押下したとき
@@ -33,31 +36,31 @@ $(document).on('click', '#listSection tbody tr', async function(e){
 // 最初ページボタンを押下したとき
 $(document).on('click', '#firstPageBtn', async function(e){
   footer.moveFirstPage();
-  commonSearchLogic();
+  await commonSearchLogic();
 });
 
 // 前ページボタンを押下したとき
 $(document).on('click', '#beforePageBtn', async function(e){
   footer.moveBeforePage();
-  commonSearchLogic();
+  await commonSearchLogic();
 });
 
 // ページセレクトボックスを切り替えしたとき
 $(document).on('change', '#pageSelect', async function(e){
   footer.updatePageSelect($('#pageSelect').val());
-  commonSearchLogic();
+  await commonSearchLogic();
 });
 
 // 後ページボタンを押下したとき
 $(document).on('click', '#afterPageBtn', async function(e){
   footer.moveAfterPage();
-  commonSearchLogic();
+  await commonSearchLogic();
 });
 
 // 最後ページボタンを押下したとき
 $(document).on('click', '#lastPageBtn', async function(e){
   footer.moveLastPage();
-  commonSearchLogic();
+  await commonSearchLogic();
 });
 
 // 閉じるボタンを押下したとき

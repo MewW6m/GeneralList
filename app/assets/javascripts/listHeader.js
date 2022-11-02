@@ -2,7 +2,17 @@
  *  * 一覧ヘッダの描画に関するクラス
  */
 class ListHeader {
-  #sort = ""; #order = "";
+  #sort = "zaikoCode"; #order = "asc";
+
+  /**
+   *  * sort, orderを更新する
+   *  * @param {object} elm - 押下した要素
+   *  * @param {boolean} updownFlag - 上下フラグ
+   */
+  #updateSortOrder(elm, updownFlag){
+    this.sort = $(elm).data('row');
+    this.order = updownFlag ? 'asc' : 'desc';
+  }
 
   /**
    *  * 矢印を更新する
@@ -22,6 +32,8 @@ class ListHeader {
     } else {
       $(elm).find('span').attr('uk-icon', 'icon: triangle-down');
     }
+    
+    this.#updateSortOrder(elm, updownFlag);
   }
 
   get sort(){ return this.#sort; }
