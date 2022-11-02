@@ -12,11 +12,11 @@ class Search{
    **  * 検索パラメータの更新を行う
    **/
   updateSearch(){
-    this.itemCode = $('#itemCode').val();;
-    this.itemName = $('#itemName').val();;
-    this.status = $('#status').val();;
-    this.registUser = $('#registUser').val();
-    this.updateUser = $('#updateUser').val();;
+    this.itemCode = $('#itemCodeInput').val();
+    this.itemName = $('#itemNameInput').val();
+    this.status = $('#statusSelect').val();
+    this.registUser = $('#registUserInput').val();
+    this.updateUser = $('#updateUserInput').val();
   }
 
   get itemCode(){ return this.#itemCode; }

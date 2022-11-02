@@ -5,99 +5,80 @@ const listBody = new ListBody();
 const aside = new Aside();
 const footer = new Footer();
 
-const itemCode = search.itemCode;
-const itemName = search.itemName;
-const status = search.status;
-const registUser = search.registUser;
-const updateUser = search.updateUser;
-const sort = listHeader.sort;
-const order = listHeader.order;
-const page = footer.page;
-
 
 // 初期表示時
-document.addEventListener('DOMContentLoaded', async function(e){
-  await listApi.fireApi(itemCode, itemName, status, registUser, updateUser, sort, order, page);
-  listBody.updateLines(listApi.result.zaikoList);
-  footer.updateTotalCount(listApi.result.total);
+$(document).on("DOMContentLoaded", async function(e){
+  commonSearchLogic();
 });
 
 // 検索ボタンを押下したとき
-document.querySelector('#searchBtn').addEventListener('click', async function(e){
+$(document).on("click", '#searchBtn', async function(e){
   search.updateSearch();
-  aside.close();
-  await listApi.fireApi(itemCode, itemName, status, registUser, updateUser, sort, order, page);
-  listBody.updateLines(listApi.result.zaikoList);
-  footer.updateTotalCount(listApi.result.total);
+  commonSearchLogic();
 });
 
 // ソートボタンを押下したとき
-document.querySelectorAll('.listHeader').forEach(function(row) {
-  row.addEventListener('click', async function(e){
-    listHeader.updateArrow(e.currentTarget);
-    aside.close();
-    await listApi.fireApi(itemCode, itemName, status, registUser, updateUser, sort, order, page);
-    listBody.updateLines(listApi.result.zaikoList);
-    footer.updateTotalCount(listApi.result.total);
-  });
+$(document).on('click', '#listSection thead th', async function(e){
+  listHeader.updateArrow(e.currentTarget);
+  commonSearchLogic();
 });
 
 // 一覧行を押下したとき
-document.querySelectorAll('.listLine').forEach(function(line) {
-  line.addEventListener('click', async function(e){
-    listBody.updateLineColor(e.currentTarget);
-    aside.update(e.currentTarget);
-    aside.open();
-  });
+$(document).on('click', '#listSection tbody tr', async function(e){
+  listBody.updateLineColor(e.currentTarget);
+  aside.update(e.currentTarget);
+  aside.open();
 });
 
 // 最初ページボタンを押下したとき
-document.querySelector('#firstPageBtn').addEventListener('click', async function(e){
+$(document).on('click', '#firstPageBtn', async function(e){
   footer.moveFirstPage();
-  aside.close();
-  await listApi.fireApi(itemCode, itemName, status, registUser, updateUser, sort, order, page);
-  listBody.updateLines(listApi.result.zaikoList);
-  footer.updateTotalCount(listApi.result.total);
+  commonSearchLogic();
 });
 
 // 前ページボタンを押下したとき
-document.querySelector('#beforePageBtn').addEventListener('click', async function(e){
+$(document).on('click', '#beforePageBtn', async function(e){
   footer.moveBeforePage();
-  aside.close();
-  await listApi.fireApi(itemCode, itemName, status, registUser, updateUser, sort, order, page);
-  listBody.updateLines(listApi.result.zaikoList);
-  footer.updateTotalCount(listApi.result.total);
+  commonSearchLogic();
 });
 
 // ページセレクトボックスを切り替えしたとき
-document.querySelector('#pageSelect').addEventListener('change', async function(e){
+$(document).on('change', '#pageSelect', async function(e){
   footer.updatePageSelect($('#pageSelect').val());
-  aside.close();
-  await listApi.fireApi(itemCode, itemName, status, registUser, updateUser, sort, order, page);
-  listBody.updateLines(listApi.result.zaikoList);
-  footer.updateTotalCount(listApi.result.total);
+  commonSearchLogic();
 });
 
 // 後ページボタンを押下したとき
-document.querySelector('#afterPageBtn').addEventListener('click', async function(e){
+$(document).on('click', '#afterPageBtn', async function(e){
   footer.moveAfterPage();
-  aside.close();
-  await listApi.fireApi(itemCode, itemName, status, registUser, updateUser, sort, order, page);
-  listBody.updateLines(listApi.result.zaikoList);
-  footer.updateTotalCount(listApi.result.total);
+  commonSearchLogic();
 });
 
 // 最後ページボタンを押下したとき
-document.querySelector('#lastPageBtn').addEventListener('click', async function(e){
+$(document).on('click', '#lastPageBtn', async function(e){
   footer.moveLastPage();
-  aside.close();
-  await listApi.fireApi(itemCode, itemName, status, registUser, updateUser, sort, order, page);
-  listBody.updateLines(listApi.result.zaikoList);
-  footer.updateTotalCount(listApi.result.total);
+  commonSearchLogic();
 });
 
 // 閉じるボタンを押下したとき
-document.querySelector('#closeBtn').addEventListener('click', async function(e){
+$(document).on('click', '#closeBtn', async function(e){
   listBody.removeLineColor();
   aside.close()
 });
+
+// 共通の検索ロジック
+async function commonSearchLogic() {
+  aside.close();
+  await listApi.fireApi(
+    search.itemCode, 
+    search.itemName,
+    search.status, 
+    search.registUser, 
+    search.updateUser, 
+    listHeader.sort, 
+    listHeader.order, 
+    footer.page
+  );
+  listBody.updateLines(listApi.result.zaikoList);
+  footer.updateTotalCount(listApi.result.total);
+}

@@ -21,14 +21,19 @@ class ListApi {
    **/
   async fireApi(itemCode, itemName, status, registUser, updateUser, sort, order, page){
     this.#setParam(itemCode, itemName, status, registUser, updateUser, sort, order, page);
-    await $.ajax(`/lists/1`,{type: 'get', data: this.#param})
-      .done((res) => {
+    await $.ajax({
+	url: `/lists/1`,
+	type: 'get', 
+        data: this.#param,
+	beforeSend: () => { $('#loading').show(); }
+      }).done((res) => {
         this.result = res;
         return true;
-      })
-      .fail((jqXHR, textStatus, errorThrown) => {
+      }).fail((jqXHR, textStatus, errorThrown) => {
         this.result = {};
         return false;
+      }).always(()=>{
+        $('#loading').hide();
       });
   }
 
