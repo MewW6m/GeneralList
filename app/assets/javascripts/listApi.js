@@ -30,10 +30,11 @@ class ListApi {
         this.result = res;
         return true;
       }).fail((jqXHR, textStatus, errorThrown) => {
+        UIkit.notification(errorThrown,{status: 'danger', timeout: 2000});
         this.result = {};
         return false;
       }).always(()=>{
-        $('#loading').hide();
+        setInterval(() => {$('#loading').hide()}, 1000);
       });
   }
 

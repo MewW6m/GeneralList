@@ -130,3 +130,8 @@ aside input {
   z-index: 2;
   color: white;
 }
+.uk-notification-message.uk-notification-message-danger{
+  background: #fef4f6 !important;
+  color: #f0506e !important;
+  font-size:15px !important;
+}
