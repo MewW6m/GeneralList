@@ -5,6 +5,17 @@ class ListApi {
   #param = {};
   #result = {};
 
+  /**
+   **  * リクエストパラメータを設定する
+   **  * @param {string} itemCode - 物品コード
+   **  * @param {string} itemName - 物品名
+   **  * @param {string} status - ステータス
+   **  * @param {string} registUser - 登録ユーザ
+   **  * @param {string} updateUser - 更新ユーザ
+   **  * @param {string} sort - ソート項目
+   **  * @param {string} order - ソート順
+   **  * @param {string} page - ページ番号
+   **/
   #setParam(itemCode, itemName, status, registUser, updateUser, sort, order, page){
     this.#param.itemCode = itemCode;
     this.#param.itemName = itemName;
@@ -17,7 +28,15 @@ class ListApi {
   }
 
   /**
-   ** * 検索APIを実行する
+   **  * 検索APIを実行する
+   **  * @param {string} itemCode - 物品コード
+   **  * @param {string} itemName - 物品名
+   **  * @param {string} status - ステータス
+   **  * @param {string} registUser - 登録ユーザ
+   **  * @param {string} updateUser - 更新ユーザ
+   **  * @param {string} sort - ソート項目
+   **  * @param {string} order - ソート順
+   **  * @param {string} page - ページ番号
    **/
   async fireApi(itemCode, itemName, status, registUser, updateUser, sort, order, page){
     this.#setParam(itemCode, itemName, status, registUser, updateUser, sort, order, page);
@@ -38,11 +57,6 @@ class ListApi {
       });
   }
 
-  get result(){
-    return this.#result;
-  }
-
-  set result(arg){
-    this.#result = arg;
-  }
+  get result(){ return this.#result; }
+  set result(arg){ this.#result = arg; }
 }

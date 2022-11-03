@@ -54,14 +54,19 @@ class Footer {
    */
   updateTotalCount(num){
     this.totalCount = num;
+    const pageNum = Math.floor(this.totalCount/30)+1;
+    const firstCount = num == 0 ? 0 : 30*(this.page-1)+1;
+    const lastCount = num == 0 ? 0 : this.page == pageNum ? num : 30*(this.page-1) + 30 ;
     $('#totalCount').text(num); 
+    $('#firstCount').text(firstCount);
+    $('#lastCount').text(lastCount);
   }
 
   /**
    *  * ページ番号セレクトボックスの選択肢を更新する
    */
   updatePageSelectChoice(){
-    const pageNum = Math.floor(footer.totalCount/30)+1;
+    const pageNum = Math.floor(this.totalCount/30)+1;
     const pageList = Array.from(Array(pageNum), (v, k) => k);
 
     $('#pageSelect').empty();
