@@ -1,5 +1,7 @@
 # GeneralList
-物品のデータを一覧で表示するアプリを作る..
+物品のデータを一覧で表示するアプリを作る
+
+[!['操作方法']('https://user-images.githubusercontent.com/17735847/199638781-2cbfcaee-f4b0-432b-b6bc-2a3f18344fd8.png')]('https://youtu.be/VV08lNCh5U8')
 
 ## Overview
 - 物品在庫のデータを一覧表示できるアプリを作る
