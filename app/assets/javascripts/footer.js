@@ -25,7 +25,7 @@ class Footer {
    *  * 次のページに移動する
    */
   moveAfterPage(){
-    const lastPage =  Math.floor(footer.totalCount/30)+1;
+    const lastPage =  Math.floor(footer.totalCount/30) + 1;
     const movePage = this.page == lastPage ? this.page : this.page + 1;
     this.updatePageSelect(movePage);
 
@@ -35,7 +35,7 @@ class Footer {
    *  * 最後のページに移動する
    */
   moveLastPage(){
-    const movePage = Math.floor(footer.totalCount/30)+1;
+    const movePage = Math.floor(footer.totalCount/30) + 1;
     this.updatePageSelect(movePage);
   }
 
@@ -77,7 +77,7 @@ class Footer {
 
 
   get page(){ return this.#page; }
-  set page(arg){ this.#page = arg; }
+  set page(arg){ if (typeof arg !== "number") throw new Error(""); this.#page = arg; }
   get totalCount(){ return this.#totalCount; }
-  set totalCount(arg){ this.#totalCount = arg; }
+  set totalCount(arg){ if (typeof arg !== "number") throw new Error(""); this.#totalCount = arg; }
 }

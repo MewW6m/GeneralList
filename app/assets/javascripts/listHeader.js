@@ -37,7 +37,7 @@ class ListHeader {
   }
 
   get sort(){ return this.#sort; }
-  set sort(arg){ this.#sort = arg; }
+  set sort(arg){ if (typeof arg !== "string") throw new Error(""); this.#sort = arg; }
   get order(){ return this.#order; }
-  set order(arg){ this.#order = arg; }
+  set order(arg){ if (typeof arg !== "string") throw new Error(""); this.#order = arg; }
 }

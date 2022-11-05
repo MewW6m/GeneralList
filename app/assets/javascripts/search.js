@@ -20,13 +20,13 @@ class Search{
   }
 
   get itemCode(){ return this.#itemCode; }
-  set itemCode(arg){ this.#itemCode = arg; }
+  set itemCode(arg){ if (typeof arg !== "string") throw new Error(""); this.#itemCode = arg; }
   get itemName(){ return this.#itemName; }
-  set itemName(arg){ this.#itemName = arg; }
+  set itemName(arg){ if (typeof arg !== "string") throw new Error(""); this.#itemName = arg; }
   get status(){ return this.#status; }
-  set status(arg){ this.#status = arg; }
+  set status(arg){ if (typeof arg !== "string") throw new Error(""); this.#status = arg; }
   get registUser(){ return this.#registUser; }
-  set registUser(arg){ this.#registUser = arg; }
+  set registUser(arg){ if (typeof arg !== "string") throw new Error(""); this.#registUser = arg; }
   get updateUser(){ return this.#updateUser; }
-  set updateUser(arg){ this.#updateUser = arg; }
+  set updateUser(arg){ if (typeof arg !== "string") throw new Error(""); this.#updateUser = arg; }
 }

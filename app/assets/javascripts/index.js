@@ -47,7 +47,7 @@ $(document).on('click', '#beforePageBtn', async function(e){
 
 // ページセレクトボックスを切り替えしたとき
 $(document).on('change', '#pageSelect', async function(e){
-  footer.updatePageSelect($('#pageSelect').val());
+  footer.updatePageSelect(Number($('#pageSelect').val()));
   await commonSearchLogic();
 });
 
