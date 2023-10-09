@@ -1,4 +1,4 @@
-# GeneralList
+# GeneralList(Rails)
 物品のデータを一覧で表示するアプリを作る
 
 [!['操作方法'](https://user-images.githubusercontent.com/17735847/199639830-e92c9f57-e499-4d8b-8c38-5fac3575e629.png)](https://www.youtube.com/watch?v=VV08lNCh5U8)
