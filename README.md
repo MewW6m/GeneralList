@@ -15,6 +15,17 @@
 - 複数の言語、フレームワークの習得のため
   - Rails(Ruby) 
   - Laravel(PHP) 
+  - 今後
+    - 仕事で使うもの
+      - CakePHP(PHP)
+      - Angular(Nodejs)
+      - Servlet(Java)
+      - Vue(Nodejs)
+    - ほか
+      - React(Nodejs)
+      - SpringBoot(Java)
+      - Playframework(Java)
+      - Gin(Go)
 
 ## Description
 
@@ -47,12 +58,7 @@
 - MySQL
 
 ## Usage
-- ログインする
-- 一覧を表示する
-- 一覧行を選択し、詳細を表示する
-- 検索を行い、表示行を絞る
-- 表示行の一つを押下し、詳細を表示する
-- 更新する
+- dockerフォルダにて、```docker-compose up -d```
 
 ## Licence
 - Unlicense

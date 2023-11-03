@@ -7,7 +7,7 @@ use App\Http\Requests\ZaikoRequest;
 use App\Services\ZaikoService;
 use Illuminate\Routing\Controller as BaseController;
 
-class ZaikoController extends BaseController
+class ApiController extends BaseController
 {
     //use AuthorizesRequests, ValidatesRequests;
 
