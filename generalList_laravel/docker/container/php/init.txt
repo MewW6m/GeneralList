@@ -1,0 +1,10 @@
+初回のみ本手順を実行する
+
+// Container内に入る 
+$ docker compose exec php bash
+// Laravel環境を作成する
+// カレントディレクトリはDockerfileで指定した/var/www/html
+$ composer create-project --prefer-dist "laravel/laravel=" .
+// 権限を付与する
+chmod o+w ./storage/ -R
+chown www-data:www-data -R ./storage

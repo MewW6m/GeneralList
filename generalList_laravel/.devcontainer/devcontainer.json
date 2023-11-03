@@ -1,0 +1,21 @@
+{
+   "name": "generalList_laravel",                                 // 任意の名前
+   "dockerComposeFile": "../docker/docker-compose.yml",   // DockerComposeFileを指定
+   "service": "php",                                     // DockerComposeFileにあるservice名を指定
+   "workspaceFolder": "/var/www/html",                             // コンテナに入ったときの作業ディレクトリ
+   "settings": {
+       "terminal.integrated.defaultProfile.linux": "bash" // bashでターミナルを起動
+   },
+   "postCreateCommand": "apt-get update && apt-get install -y git",
+   "extensions": [                                        // コンテナ内で使いたい拡張機能
+     "asciidoctor.asciidoctor-vscode",
+     "donjayamanne.githistory",
+     "mhutchie.git-graph",
+     "MS-CEINTL.vscode-language-pack-ja",
+     "ms-vscode-remote.remote-containers",
+     "VisualStudioExptTeam.intellicode-api-usage-examples",
+     "VisualStudioExptTeam.vscodeintellicode",
+     "vmware.vscode-boot-dev-pack",
+     "pivotal.vscode-boot-dev-pack"
+   ]
+ }
