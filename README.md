@@ -55,7 +55,7 @@
 - 更新する
 
 ## Licence
-- GNU General Public License v3.0
+- Unlicense
 
 ## Author
 - MewW6m ([@MewW6m](https://github.com/MewW6m/))
