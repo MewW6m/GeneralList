@@ -1,14 +1,15 @@
 *.gem
 *.rbc
-/.config
-/coverage/
-/InstalledFiles
-/pkg/
-/spec/reports/
-/spec/examples.txt
-/test/tmp/
-/test/version_tmp/
-/tmp/
+src/.config
+src/coverage/
+src/InstalledFiles
+src/pkg/
+src/spec/reports/
+src/spec/examples.txt
+src/test/tmp/
+src/test/version_tmp/
+src/tmp/
+docker/mysql
 
 # Used by dotenv library to load environment variables.
 # .env
@@ -19,7 +20,7 @@
 ## Specific to RubyMotion:
 .dat*
 .repl_history
-build/
+src/build/
 *.bridgesupport
 build-iPhoneOS/
 build-iPhoneSimulator/
@@ -33,15 +34,15 @@ build-iPhoneSimulator/
 # vendor/Pods/
 
 ## Documentation cache and generated files:
-/.yardoc/
-/_yardoc/
-/doc/
-/rdoc/
+src/.yardoc/
+src/_yardoc/
+src/doc/
+src/rdoc/
 
 ## Environment normalization:
-/.bundle/
-/vendor/bundle
-/lib/bundler/man/
+src/.bundle/
+src/vendor/bundle
+src/lib/bundler/man/
 
 # for a library or gem, you might want to ignore these files since the code is
 # intended to run in multiple environments; otherwise, check them in:
@@ -57,47 +58,47 @@ build-iPhoneSimulator/
 
 
 # Rails
-/.bundle
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
+src/.bundle
+src/log/*
+src/tmp/*
+!src/log/.keep
+!src/tmp/.keep
 .byebug_history
 .DS_Store### https://raw.github.com/github/gitignore/18aa6d83774d514da479d73a4beb864cd4220231/Rails.gitignore
 .rbc
 capybara-.html
 .rspec
-/db/.sqlite3
-/db/.sqlite3-journal
-/db/.sqlite3-[0-9]*
-/public/system
-/coverage/
-/spec/tmp
+src/db/.sqlite3
+src/db/.sqlite3-journal
+src/db/.sqlite3-[0-9]*
+src/public/system
+src/coverage/
+src/spec/tmp
 .orig
 rerun.txt
 pickle-email-.html
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
-.env
-.env.*
-/.bundle
-/vendor/bundle
+src/log/*
+src/tmp/*
+!src/log/.keep
+!src/tmp/.keep
+src/.env
+src/.env.*
+src/.bundle
+src/vendor/bundle
 .rvmrc
 .bowerrc
 bower.json
 .powenv
 .byebug_history
-/public/packs
-/public/packs-test
-/public/assets
-/yarn-error.log
+src/public/packs
+src/public/packs-test
+src/public/assets
+src/yarn-error.log
 yarn-debug.log*
 .yarn-integrity
-/storage/*
-!/storage/.keep
-/public/uploadse/*
+src/storage/*
+!src/storage/.keep
+src/public/uploadse/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
