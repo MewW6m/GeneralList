@@ -19,7 +19,6 @@ class ApiController extends BaseController
     }
 
     public function getList(ZaikoListRequest $request) {
-        $validated = $request->validated();
         $zaikoList = $this->zaikoService->getZaikoList($request);
         return [
             'total' => '0', 
@@ -28,23 +27,34 @@ class ApiController extends BaseController
     }
 
     public function getDetail(ZaikoRequest $request) {
-        $request->validated();
         $zaiko = $this->zaikoService->getZaiko($request);
-        return $zaiko;
+        return [
+            'status' => '0', 
+            'result' => $zaiko
+        ];
     }
 
     public function postDetail(ZaikoRequest $request) {
-        $request->validated();
         $this->zaikoService->registZaiko($request);
+        return [
+            'status' => '0', 
+            'result' => ""
+        ];
     }
 
     public function patchDetail(ZaikoRequest $request) {
-        $request->validated();
         $this->zaikoService->updateZaiko($request);
+        return [
+            'status' => '0', 
+            'result' => ""
+        ];
     }
 
     public function deleteDetail(ZaikoRequest $request) {
-        $request->validated();
         $this->zaikoService->deleteZaiko($request);
+        return [
+            'status' => '0', 
+            'result' => ""
+        ];
     }
 }

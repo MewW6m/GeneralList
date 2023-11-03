@@ -4,16 +4,20 @@ namespace App\Services;
 
 use App\Http\Requests\ZaikoListRequest;
 use App\Http\Requests\ZaikoRequest;
+use App\Repositories\ItemRepository;
 use App\Repositories\ZaikoRepository;
+use Exception;
 use stdClass;
 
 class ZaikoService {
 
     private $zaikoRepository;
+    private $itemRepository;
 
-    public function __construct(ZaikoRepository $zaikoRepository)
+    public function __construct(ZaikoRepository $zaikoRepository, ItemRepository $itemRepository)
     {
         $this->zaikoRepository = $zaikoRepository;
+        $this->itemRepository = $itemRepository;
     }
 
     public function getZaikoList(ZaikoListRequest $request) {
@@ -26,6 +30,7 @@ class ZaikoService {
         $findOneDto->id = $request->input('id');
         return $this->zaikoRepository->findOne($findOneDto);
     }
+
     public function registZaiko(ZaikoRequest $request) {
         $registOneDto = new stdClass();
         $registOneDto->id = $request->input('id');
@@ -36,6 +41,14 @@ class ZaikoService {
         $registOneDto->enable = $request->input('enable');
         $registOneDto->createAt = date('Y-m-d H:i:s');
         $registOneDto->updateAt = date('Y-m-d H:i:s');
+
+        $itemOneDto = new stdClass();
+        $itemOneDto->id = $request->input('itemCode');
+        $itemlist = $this->itemRepository->findAll($itemOneDto);
+        if ($itemlist->count() == 0) {
+            throw new Exception("itemCodeが存在しません。");
+        }
+
         $this->zaikoRepository->registOne($registOneDto);
     }
 
@@ -47,6 +60,14 @@ class ZaikoService {
         $updateOneDto->updateUser = 1;
         $updateOneDto->enable = $request->input('enable');
         $updateOneDto->updateAt = date('Y-m-d H:i:s');
+
+        $itemOneDto = new stdClass();
+        $itemOneDto->id = $request->input('itemCode');
+        $itemlist = $this->itemRepository->findAll($itemOneDto);
+        if ($itemlist->count() == 0) {
+            throw new Exception("itemCodeが存在しません。");
+        }
+
         $this->zaikoRepository->updateOne($updateOneDto);
     }
 
