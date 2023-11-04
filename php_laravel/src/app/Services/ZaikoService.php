@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Services;
 
@@ -7,12 +8,13 @@ use App\Http\Requests\ZaikoRequest;
 use App\Repositories\ItemRepository;
 use App\Repositories\ZaikoRepository;
 use Exception;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use stdClass;
 
 class ZaikoService {
 
-    private $zaikoRepository;
-    private $itemRepository;
+    private ZaikoRepository $zaikoRepository;
+    private ItemRepository $itemRepository;
 
     public function __construct(ZaikoRepository $zaikoRepository, ItemRepository $itemRepository)
     {
@@ -20,7 +22,7 @@ class ZaikoService {
         $this->itemRepository = $itemRepository;
     }
 
-    public function getZaikoList(ZaikoListRequest $request) {
+    public function getZaikoList(ZaikoListRequest $request) : LengthAwarePaginator {
 
         $findAllDto = new stdClass();
         $findAllDto->id = $request->input('id') ?? '%';
@@ -32,13 +34,13 @@ class ZaikoService {
         return $this->zaikoRepository->findAll($findAllDto);
     }
 
-    public function getZaiko(ZaikoRequest $request) {
+    public function getZaiko(ZaikoRequest $request) : object {
         $findOneDto = new stdClass();
         $findOneDto->id = $request->input('id');
         return $this->zaikoRepository->findOne($findOneDto);
     }
 
-    public function registZaiko(ZaikoRequest $request) {
+    public function registZaiko(ZaikoRequest $request) : void {
         $registOneDto = new stdClass();
         $registOneDto->id = $request->input('id');
         $registOneDto->status = $request->input('status');
@@ -59,7 +61,7 @@ class ZaikoService {
         $this->zaikoRepository->registOne($registOneDto);
     }
 
-    public function updateZaiko(ZaikoRequest $request) {
+    public function updateZaiko(ZaikoRequest $request) : void {
         $updateOneDto = new stdClass();
         $updateOneDto->id = $request->input('id');
         $updateOneDto->status = $request->input('status');
@@ -78,7 +80,7 @@ class ZaikoService {
         $this->zaikoRepository->updateOne($updateOneDto);
     }
 
-    public function deleteZaiko(ZaikoRequest $request) {
+    public function deleteZaiko(ZaikoRequest $request) : void {
         $deleteOneDto = new stdClass();
         $deleteOneDto->id = $request->input('id');
         $this->zaikoRepository->deleteOne($deleteOneDto);

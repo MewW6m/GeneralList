@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Repositories;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 use stdClass;
 
 class ZaikoRepository {
-    public function findAll(stdClass $findAllDto) {
+    public function findAll(stdClass $findAllDto) : LengthAwarePaginator {
         $zaikoList = DB::table('stocks as a')
         ->addSelect('a.id')
         ->addSelect('a.status')
@@ -25,7 +26,7 @@ class ZaikoRepository {
         return $zaikoList;
     }
 
-    public function findOne(stdClass $findOneDto) {
+    public function findOne(stdClass $findOneDto) : object {
         $zaiko = DB::table('stocks as a')
         ->addSelect('a.id')
         ->addSelect('a.itemCode')
@@ -52,7 +53,7 @@ class ZaikoRepository {
         return $zaiko;
     }
 
-    public function registOne(stdClass $registOneDto) {
+    public function registOne(stdClass $registOneDto) : void {
         DB::table('stocks')->insert([
             'id' => $registOneDto->id,
             'status' => $registOneDto->status,
@@ -65,7 +66,7 @@ class ZaikoRepository {
         ]);
     }
 
-    public function updateOne(stdClass $updateOneDto) {
+    public function updateOne(stdClass $updateOneDto) : void {
         DB::table('stocks')
         ->where('id', '=', $updateOneDto->id)
         ->update([
@@ -78,10 +79,9 @@ class ZaikoRepository {
         ]);
     }
 
-    public function deleteOne(stdClass $deleteOneDto) {
+    public function deleteOne(stdClass $deleteOneDto) : void {
         DB::table('stocks')
         ->where('id', '=', $deleteOneDto->id)
-        ->first()
         ->delete();
     }
 }

@@ -13,7 +13,7 @@ DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE test.department_masters (
-	id bigint NOT NULL,
+	id bigint NOT NULL,	
 	name VARCHAR(100) NOT NULL,
 	enable BOOL NULL,
 	created_at DATETIME NOT NULL,
