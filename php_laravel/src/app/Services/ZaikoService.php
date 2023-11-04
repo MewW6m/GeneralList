@@ -21,7 +21,14 @@ class ZaikoService {
     }
 
     public function getZaikoList(ZaikoListRequest $request) {
+
         $findAllDto = new stdClass();
+        $findAllDto->id = $request->input('id') ?? '%';
+        $findAllDto->status = $request->input('status') ?? '%';
+        $findAllDto->itemCode = $request->input('itemCode') ?? '%';
+        $findAllDto->itemName = $request->input('itemName') ?? '%';
+        $findAllDto->sort = $request->input('sort');
+        $findAllDto->order = $request->input('order');
         return $this->zaikoRepository->findAll($findAllDto);
     }
 

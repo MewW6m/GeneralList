@@ -21,8 +21,8 @@ class ApiController extends BaseController
     public function getList(ZaikoListRequest $request) {
         $zaikoList = $this->zaikoService->getZaikoList($request);
         return [
-            'total' => '0', 
-            'zaikoList' => $zaikoList
+            'status' => '0', 
+            'result' => $zaikoList
         ];
     }
 

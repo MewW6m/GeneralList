@@ -6,9 +6,22 @@ use stdClass;
 
 class ZaikoRepository {
     public function findAll(stdClass $findAllDto) {
-        $zaikoList = DB::table('stocks')
-        ->where('id', '=', $findAllDto->id)
-        ->get();
+        $zaikoList = DB::table('stocks as a')
+        ->addSelect('a.id')
+        ->addSelect('a.status')
+        ->addSelect('a.itemCode')
+        ->addSelect('b.name')
+        ->addSelect('a.createAt')
+        ->addSelect('a.updateAt')
+        ->leftjoin('item_masters as b', 'a.itemCode', '=', 'b.id')
+        ->where('a.id', 'like', $findAllDto->id)
+        ->where('a.itemCode', 'like', $findAllDto->itemCode)
+        ->where('b.name', 'like', $findAllDto->itemName)
+        ->where('a.status', 'like', $findAllDto->status)
+        ->where('a.enable', '=', 1)
+        ->where('b.enable', '=', 1)
+        ->orderBy($findAllDto->sort, $findAllDto->order)
+        ->paginate(30);
         return $zaikoList;
     }
 
@@ -27,14 +40,14 @@ class ZaikoRepository {
         ->addSelect('a.enable')
         ->addSelect('a.createAt')
         ->addSelect('a.updateAt')
-        ->where('a.id', '=', $findOneDto->id)
-        ->where('a.enable', '=', 1)
-        ->where('b.enable', '=', 1)
-        ->join('item_masters as b', 'a.itemCode', '=', 'b.id')
+        ->leftjoin('item_masters as b', 'a.itemCode', '=', 'b.id')
         ->leftjoin('users as c', 'a.registUser', '=', 'c.id')
         ->leftjoin('users as d', 'a.updateUser', '=', 'd.id')
         ->leftjoin('department_masters as e', 'c.departmentId', '=', 'e.id')
         ->leftjoin('department_masters as f', 'd.departmentId', '=', 'f.id')
+        ->where('a.id', '=', $findOneDto->id)
+        ->where('a.enable', '=', 1)
+        ->where('b.enable', '=', 1)
         ->sole();
         return $zaiko;
     }

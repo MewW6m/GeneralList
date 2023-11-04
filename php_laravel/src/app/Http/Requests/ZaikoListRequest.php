@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class ZaikoListRequest extends FormRequest
 {
@@ -21,9 +23,17 @@ class ZaikoListRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+        if ($this->isMethod('get')) {
+            return [
+                'id' => 'integer',
+                'status' => 'string',
+                'itemName' => 'string',
+                'itemCode' => 'integer',
+                'sort' => 'string',
+                'order' => 'string',
+                'page' => 'integer',
+            ];
+        }
     }
     
     protected function failedValidation(Validator $validator)
