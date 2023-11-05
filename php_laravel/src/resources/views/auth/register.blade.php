@@ -1,3 +1,5 @@
+@include('components.links')
+
 @if ($errors->any())
 <div>
 	<ul>
