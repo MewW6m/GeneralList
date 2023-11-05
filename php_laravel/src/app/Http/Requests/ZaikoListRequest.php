@@ -37,6 +37,13 @@ class ZaikoListRequest extends FormRequest
         }
     }
     
+    /**
+     * バリデーションが失敗した場合に呼び出されます。
+     *
+     * @param Validator $validator バリデータ
+     * @return void
+     * @throws HttpResponseException レスポンス例外
+     */
     protected function failedValidation(Validator $validator)
     {
         $response = response()->json([

@@ -5,7 +5,16 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 use stdClass;
 
+/**
+ * ZaikoRepositoryクラス
+ */
 class ZaikoRepository {
+    /**
+     * 全ての在庫を検索します。
+     *
+     * @param stdClass $findAllDto 検索条件を含むオブジェクト
+     * @return LengthAwarePaginator 検索結果のページネーション
+     */
     public function findAll(stdClass $findAllDto) : LengthAwarePaginator {
         $zaikoList = DB::table('stocks as a')
         ->addSelect('a.id')
@@ -26,6 +35,12 @@ class ZaikoRepository {
         return $zaikoList;
     }
 
+    /**
+     * 一つの在庫を検索します。
+     *
+     * @param stdClass $findOneDto 検索条件を含むオブジェクト
+     * @return object 検索結果の在庫
+     */
     public function findOne(stdClass $findOneDto) : object {
         $zaiko = DB::table('stocks as a')
         ->addSelect('a.id')
@@ -53,6 +68,12 @@ class ZaikoRepository {
         return $zaiko;
     }
 
+    /**
+     * 一つの在庫を登録します。
+     *
+     * @param stdClass $registOneDto 登録する在庫の情報を含むオブジェクト
+     * @return void
+     */
     public function registOne(stdClass $registOneDto) : void {
         DB::table('stocks')->insert([
             'id' => $registOneDto->id,
@@ -66,6 +87,12 @@ class ZaikoRepository {
         ]);
     }
 
+    /**
+     * 一つの在庫を更新します。
+     *
+     * @param stdClass $updateOneDto 更新する在庫の情報を含むオブジェクト
+     * @return void
+     */
     public function updateOne(stdClass $updateOneDto) : void {
         DB::table('stocks')
         ->where('id', '=', $updateOneDto->id)
@@ -79,6 +106,12 @@ class ZaikoRepository {
         ]);
     }
 
+    /**
+     * 一つの在庫を削除します。
+     *
+     * @param stdClass $deleteOneDto 削除する在庫の情報を含むオブジェクト
+     * @return void
+     */
     public function deleteOne(stdClass $deleteOneDto) : void {
         DB::table('stocks')
         ->where('id', '=', $deleteOneDto->id)
