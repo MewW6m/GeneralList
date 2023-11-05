@@ -26,6 +26,8 @@ services:
     # srcディレクトリ内のファイルをコンテナ内の~/var/www/html配下にマウント
     volumes:
       - "../src:/var/www/html"
+      - /var/www/html/storage/framework
+      - /var/www/html/vendor
 
   # DBサーバー
   db:
