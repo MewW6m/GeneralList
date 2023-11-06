@@ -1,7 +1,7 @@
 /**
- *  * 検索APIに関するクラス
+ *  * APIに関するクラス
  */
-class ListApi {
+class Api {
   #param = {};
   #result = {};
 
@@ -60,3 +60,5 @@ class ListApi {
   get result(){ return this.#result; }
   set result(arg){ this.#result = arg; }
 }
+
+export let api = new Api();

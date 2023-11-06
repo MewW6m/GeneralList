@@ -1,7 +1,7 @@
 /**
  *  * フッターの描画に関するクラス
  */
-class Footer {
+export class Footer {
   #page = 1;
   #totalCount = 0; 
 
@@ -81,3 +81,5 @@ class Footer {
   get totalCount(){ return this.#totalCount; }
   set totalCount(arg){ if (typeof arg !== "number") throw new Error(""); this.#totalCount = arg; }
 }
+
+export let footer = new Footer();

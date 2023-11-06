@@ -1,10 +1,9 @@
-const listApi = new ListApi();
-const search = new Search();
-const listHeader = new ListHeader();
-const listBody = new ListBody();
-const aside = new Aside();
-const footer = new Footer();
-
+import { api } from "../../api.js";
+import { aside } from "./aside.js";
+import { footer } from "./footer.js";
+import { listBody } from "./listBody.js";
+import { listHeader } from "./listHeader.js";
+import { search } from "./search.js";
 
 // 初期表示時
 $(document).on("DOMContentLoaded", async function(e){
@@ -72,7 +71,7 @@ $(document).on('click', '#closeBtn', async function(e){
 // 共通の検索ロジック
 async function commonSearchLogic() {
   aside.close();
-  await listApi.fireApi(
+  await api.fireApi(
     search.itemCode, 
     search.itemName,
     search.status, 
@@ -82,6 +81,6 @@ async function commonSearchLogic() {
     listHeader.order, 
     footer.page
   );
-  listBody.updateLines(listApi.result.zaikoList);
-  footer.updateTotalCount(listApi.result.total);
+  listBody.updateLines(api.result.zaikoList);
+  footer.updateTotalCount(api.result.total);
 }

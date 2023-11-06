@@ -15,9 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/zaiko', function () {
+    return view('zaiko/list');
+})->middleware('auth');
+
+Route::get('/zaiko/{id}', function () {
+    return view('zaiko/detail');
+})->middleware('auth');
 
 Route::get('/api/zaiko/list', [ApiController::class, 'getList'])->withoutMiddleware([VerifyCsrfToken::class]);
 

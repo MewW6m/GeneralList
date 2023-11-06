@@ -1,7 +1,7 @@
 /**
  *  * 横パネルの描画に関するクラス
  */
-class Aside {
+export class Aside {
   /**
    *  * 横パネルを開く
    */
@@ -27,3 +27,5 @@ class Aside {
     $('aside').scrollTop(0);
   }
 }
+
+export let aside = new Aside();

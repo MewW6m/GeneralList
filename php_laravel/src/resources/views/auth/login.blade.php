@@ -49,3 +49,5 @@
 		</div>
 	</div>
 </form>
+
+@include('components.scripts')

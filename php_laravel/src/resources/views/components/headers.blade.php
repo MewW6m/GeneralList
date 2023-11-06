@@ -2,13 +2,15 @@
   <nav class="uk-navbar">
     <div class="uk-navbar-left">
       <a href="./" class="uk-navbar-item uk-logo text-white">
-        <%= image_tag 'logo.png' %>
+        <img src="/images/logo.png" class="uk-width-4-5" />
       </a>
     </div>
     <div class="uk-navbar-right">
       <ul class="uk-navbar-nav">
         <li class="uk-active">
-          <%= link_to destroy_user_session_path, method: :get, class: "text-white uk-button-text" do %>ログアウト<% end %>
+          <form method="post" action="/logout">
+            <input type="submit" value="ログアウト" class="text-white uk-button-text" />
+          </form>
         </li>
       </ul> 
     </div>

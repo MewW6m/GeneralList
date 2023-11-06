@@ -1,7 +1,7 @@
 /**
  *  * 一覧ボディの描画に関するクラス
  */
-class ListBody {
+export class ListBody {
 
   /**
    *  * 行を更新する
@@ -61,3 +61,5 @@ class ListBody {
     return format;
   };
 }
+
+export let listBody = new ListBody();
