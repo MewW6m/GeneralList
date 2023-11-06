@@ -1,6 +1,6 @@
 @include('components.links')
 
-<form method="post" action="{{route('register')}}" class="form">
+<form method="post" action="{{route('login')}}" class="form">
 	@csrf
 
 	<div class="uk-section uk-section-muted uk-flex uk-flex-middle uk-animation-fade" uk-height-viewport>
@@ -13,7 +13,6 @@
 							<div class="uk-text-center">
 								<img src="/images/logo.png" class="uk-width-4-5" />
 							</div>
-							<form>
 								@if ($errors->any())
 									<div class="uk-alert-danger" uk-alert>
 										<a class="uk-alert-close" uk-close></a>
@@ -28,7 +27,7 @@
 								<div class="uk-margin">
 									<div class="uk-inline uk-width-1-1 field">
 										<span class="uk-form-icon" uk-icon="icon: mail"></span>
-										<input type="text" name="name" class="uk-input uk-form-large"
+										<input type="text" name="email" class="uk-input uk-form-large"
 											placeholder="sample@co.jp" value="default1@sample.com"><br>
 									</div>
 								</div>
@@ -43,7 +42,6 @@
 									<button type="submit"
 										class="uk-button uk-button-primary uk-button-large uk-width-1-1">ログイン</button>
 								</div>
-							</form>
 						</div>
 					</div>
 				</div>
@@ -51,5 +49,3 @@
 		</div>
 	</div>
 </form>
-
-<%= render "devise/shared/links" %>
