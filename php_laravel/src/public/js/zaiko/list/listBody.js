@@ -18,14 +18,8 @@ export class ListBody {
       tr += '<td class="uk-text-nowrap" data-row="itemCode"> ' + line['itemCode'] + '</td>';
       tr += '<td class="uk-text-nowrap" data-row="itemName"> ' + line['itemName'] + '</td>';
       tr += '<td class="uk-text-nowrap" data-row="status"> ' + line['status'] + '</td>';
-      tr += '<td class="uk-text-nowrap" data-row="registUser"> ' + line['registUser'] + '</td>';
       tr += '<td class="uk-text-nowrap" data-row="registDate"> ' + this.#formatDate(registDate, 'yyyy-MM-dd HH:mm') + '</td>';
-      tr += '<td class="uk-text-nowrap" data-row="updateUser"> ' + line['updateUser'] + '</td>';
       tr += '<td class="uk-text-nowrap" data-row="updateDate"> ' + this.#formatDate(updateDate, 'yyyy-MM-dd HH:mm') + '</td>';
-      tr += '<td class="uk-text-nowrap" data-row="registMail" style="display:none;"> ' + line['registMail'] + '</td>';
-      tr += '<td class="uk-text-nowrap" data-row="registOrgName" style="display:none;"> ' + line['registOrgName'] + '</td>';
-      tr += '<td class="uk-text-nowrap" data-row="updateMail" style="display:none;"> ' + line['updateMail'] + '</td>';
-      tr += '<td class="uk-text-nowrap" data-row="updateOrgName" style="display:none;"> ' + line['updateOrgName'] + '</td>';
       tr += '<td> ' + '</tr>';
       $('#listSection tbody').append(tr);
     })

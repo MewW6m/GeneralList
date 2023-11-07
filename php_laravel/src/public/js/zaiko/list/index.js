@@ -1,5 +1,4 @@
 import { api } from "../../api.js";
-import { aside } from "./aside.js";
 import { footer } from "./footer.js";
 import { listBody } from "./listBody.js";
 import { listHeader } from "./listHeader.js";
@@ -28,8 +27,8 @@ $(document).on('click', '#listSection thead th', async function(e){
 // 一覧行を押下したとき
 $(document).on('click', '#listSection tbody tr', async function(e){
   listBody.updateLineColor(e.currentTarget);
-  aside.update(e.currentTarget);
-  aside.open();
+  // aside.update(e.currentTarget);
+  // aside.open();
 });
 
 // 最初ページボタンを押下したとき
@@ -65,18 +64,17 @@ $(document).on('click', '#lastPageBtn', async function(e){
 // 閉じるボタンを押下したとき
 $(document).on('click', '#closeBtn', async function(e){
   listBody.removeLineColor();
-  aside.close()
+  // aside.close()
 });
 
 // 共通の検索ロジック
 async function commonSearchLogic() {
-  aside.close();
+  // aside.close();
   await api.fireApi(
+    search.zaikoCode, 
     search.itemCode, 
     search.itemName,
-    search.status, 
-    search.registUser, 
-    search.updateUser, 
+    search.status,
     listHeader.sort, 
     listHeader.order, 
     footer.page

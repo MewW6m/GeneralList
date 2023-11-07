@@ -27,8 +27,8 @@ class ZaikoListRequest extends FormRequest
         if ($this->isMethod('get')) {
             return [
                 'id' => 'integer',
-                'status' => 'string',
-                'itemName' => 'string',
+                'status' => 'string|nullable',
+                'itemName' => 'string|nullable',
                 'itemCode' => 'integer',
                 'sort' => 'string',
                 'order' => 'string',

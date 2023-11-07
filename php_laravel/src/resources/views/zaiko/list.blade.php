@@ -16,9 +16,6 @@
       @include('components.zaiko.list.footer')
     </footer>
   </article>
-  <aside class="height100 padding10-5" style="display:none;">
-    @include('components.zaiko.list.aside')
-  </aside>
   <section id="loading">
     <div uk-spinner></div>
   </section>
