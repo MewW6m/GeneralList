@@ -1,8 +1,7 @@
-FROM node:lts-alpine
+FROM node:18-slim
 
-RUN mkdir src
+ENV TZ Asia/Tokyo
 
-RUN apk update && \
-    apk upgrade && \
-    apk add git && \
+RUN apt-get update && \
+    apt-get install -y git vim && \
     npm install -g npm@latest nuxi nuxt3

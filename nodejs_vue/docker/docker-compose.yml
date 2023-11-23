@@ -1,18 +1,21 @@
 # コンテナ定義
 services:
   vue-app:
+    container_name: vue-app
     build: .
     volumes:
       - ../src:/src:cached
       - node_modules:/src/node_modules # 2回目以降コメントイン
     working_dir: "/src"
     ports:
-      - "3000:3000"
+      - "8080:3000"
+      - "24678:24678"
     tty: true
     environment:
     - HOST=0.0.0.0
     - port=3000
     - CHOKIDAR_USEPOLLING=true
+    command: sh -c "yarn && yarn dev"
 
   # DBサーバー
   vue-db:
