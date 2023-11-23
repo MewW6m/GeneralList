@@ -1,9 +1,9 @@
 # コンテナ定義
 services:
   # webサーバー
-  web:
+  laravel-web:
     # コンテナ名
-    container_name: "web"
+    container_name: "laravel-web"
     # コンテナの作成に使用するDockerfileのパス
     build:
       context: .
@@ -16,9 +16,9 @@ services:
       - "../src:/var/www/html"
 
   # PHPサーバー
-  php:
+  laravel-php:
     # コンテナ名
-    container_name: "php"
+    container_name: "laravel-php"
     # コンテナの作成に使用するDockerfileのパス
     build:
       context: .
@@ -30,9 +30,9 @@ services:
       - /var/www/html/vendor
 
   # DBサーバー
-  db:
+  laravel-db:
     # コンテナ名
-    container_name: mysql
+    container_name: laravel-db
     image: mysql:8.0
     # コンテナの作成に使用するDockerfileのパス
     # ホスト側のポート:コンテナ側のポートを指定
