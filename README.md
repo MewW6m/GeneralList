@@ -13,19 +13,21 @@
 
 ### Purpose
 - 複数の言語、フレームワークの習得のため
-  - Rails(Ruby) 
-  - Laravel(PHP) 
+  - Rails(Ruby) - 作成中
+  - Laravel(PHP) - 作成中
+  - Vue(Nodejs) - 作成中
   - 今後
     - 仕事で使うもの
       - CakePHP(PHP)
       - Angular(Nodejs)
       - Servlet(Java)
-      - Vue(Nodejs)
-    - ほか
-      - React(Nodejs)
+    - ほか(経験があるやつ)
+      - React(Nodejs×TypeScript)
       - SpringBoot(Java)
       - Playframework(Java)
       - Gin(Go)
+      - Django(Python)
+      - Flask(Python)
 
 ## Description
 
